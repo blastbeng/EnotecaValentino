@@ -127,3 +127,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+node_modules/
+\.vs/
+data/database\.json
+.vscode
+.vscode/
+.env
+config/uwsgi.sock
+uwsgi.sock
