@@ -57,9 +57,7 @@ class Healthcheck(Resource):
 @app.route('/index')
 def index():
   return render_template('index.html', data=[])
-
-
-
+  
 cache.init_app(app)
 limiter.init_app(app)
 
