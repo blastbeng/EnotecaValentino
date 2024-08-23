@@ -46,6 +46,14 @@ app.config.from_object(Config())
 cache = Cache(app)
 api = Api(app)
 
+
+@app.after_request
+def after_request(response):
+  if not request.path.startswith('/utils/healthcheck'):
+    timestamp = strftime('[%Y-%b-%d %H:%M]')
+    logging.info('%s %s %s %s %s %s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, response.status)
+  return response
+
 nsutils = api.namespace('utils', 'Enoteca Valentino Utils APIs')
 
 @limiter.limit("1/second")

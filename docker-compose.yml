@@ -2,6 +2,7 @@
 version: "3.3"
 services:
   enoteca-valentino-site:
+    pull_policy: build
     build:
       context: .
       dockerfile: Dockerfile
@@ -19,6 +20,7 @@ services:
     networks:
       - caching
   enoteca-valentino-site-balancer:
+    pull_policy: build
     build:
       context: .
       dockerfile: Dockerfile.balancer
